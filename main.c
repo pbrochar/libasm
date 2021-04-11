@@ -43,7 +43,7 @@ int main(void)
 	//ft_putchar('d');
 	//ft_putstr("coucou\n");
 	//ft_putnbr(11556);
-	printf("%d\n", ft_isalpha('1'));
-	printf("%d\n", isalpha('\\'));
+	printf("%d\n", ft_isalnum('1'));
+	printf("%d\n", isalnum('1'));
 	return (0);
 }
