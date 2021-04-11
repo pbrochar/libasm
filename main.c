@@ -42,6 +42,8 @@ int main(void)
 	//printf("ret = %d\n", strcmp("coucou", "coucou"));
 	//ft_putchar('d');
 	//ft_putstr("coucou\n");
-	ft_putnbr(11556);
+	//ft_putnbr(11556);
+	printf("%d\n", ft_isalpha('1'));
+	printf("%d\n", isalpha('\\'));
 	return (0);
 }
