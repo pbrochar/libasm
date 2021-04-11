@@ -6,13 +6,12 @@ segment .text
 ft_strlen:
 	push rbp
 	mov rbp, rsp
-	xor rcx, rcx
+	xor rax, rax
 loop:
-	cmp BYTE [rdi + rcx], 0
+	cmp BYTE [rdi + rax], 0
 	jz end
-	inc rcx
+	inc rax
 	jmp loop
 end:
-	mov rax, rcx
 	leave
 	ret

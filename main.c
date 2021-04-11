@@ -12,12 +12,36 @@ void test_strlen()
 	printf("%lu\n", strlen("Je suis une longue phrase pour tester si tout se passe bien avec des char * assez long"));
 }
 
-int main(void)
+void test_strcpy()
 {
 	char str[100];
+	char str2[100];
 
-	test_strlen();
 	ft_strcpy(str, "coucou toto phrase longue");
-	printf("%s\n", str);
+	strcpy(str2, "coucou toto phrase longue");
+	printf("%s\n%s\n", str, str2);
+	bzero(str, 100);
+	bzero(str, 100);
+
+	ft_strcpy(str, "");
+	strcpy(str2, "");
+	printf("%s\n%s\n", str, str2);
+	bzero(str, 100);
+	bzero(str, 100);
+
+	ft_strcpy(str, "c");
+	strcpy(str2, "c");
+	printf("%s\n%s\n", str, str2);
+}
+
+int main(void)
+{
+	//test_strlen();
+	//test_strcpy();
+	//printf("ret = %d\n", ft_strcmp("coucou", "coucou"));
+	//printf("ret = %d\n", strcmp("coucou", "coucou"));
+	//ft_putchar('d');
+	//ft_putstr("coucou\n");
+	ft_putnbr(11556);
 	return (0);
 }

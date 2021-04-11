@@ -16,6 +16,5 @@ loop:
 	inc rcx
 	jmp loop
 end:
-	mov rax, rdi
 	leave
 	ret
