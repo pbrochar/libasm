@@ -21,4 +21,6 @@ int ft_isprint(int c);
 int ft_toupper(int c);
 int ft_tolower(int c);
 ssize_t ft_write(int fd, const char *buf, size_t count);
+ssize_t ft_read(int fd, const char *buf, size_t count);
+char *ft_strdup(const char *s);
 #endif

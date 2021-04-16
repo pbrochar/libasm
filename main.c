@@ -25,7 +25,7 @@ void test_strcpy()
 
 	ft_strcpy(str, "");
 	strcpy(str2, "");
-	printf("%s\n%s\n", str, str2);
+	printf("|%s|\n|%s|\n", str, str2);
 	bzero(str, 100);
 	bzero(str, 100);
 
@@ -37,7 +37,7 @@ void test_strcpy()
 int main(void)
 {
 	//test_strlen();
-	//test_strcpy();
+	test_strcpy();
 	//printf("ret = %d\n", ft_strcmp("coucou", "coucou"));
 	//printf("ret = %d\n", strcmp("coucou", "coucou"));
 	//ft_putchar('d');
@@ -45,9 +45,17 @@ int main(void)
 	//ft_putnbr(11556);
 	//printf("%d\n", ft_tolower('-'));
 	//printf("%d\n", tolower('-'));
-	if (ft_write(1, "coucou", -1) == -1)
+	/*
+	if (ft_write(1, "coucou", 1) == -1)
 	{
 		printf("error = %s\n", strerror(errno));
 	}
+	if (ft_read(-1, "coucou", 1) == -1)
+	{
+		printf("error = %s\n", strerror(errno));
+	}
+	char *test;
+	test = ft_strdup("coucou");
+	printf("%s\n", test);*/
 	return (0);
 }
