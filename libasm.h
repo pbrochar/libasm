@@ -6,7 +6,7 @@
 # include <ctype.h>
 # include <sys/types.h>
 # include <errno.h>
-
+# include <fcntl.h>
 typedef struct 	s_list
 {
 	void *data;

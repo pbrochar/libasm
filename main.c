@@ -2,21 +2,23 @@
 
 void test_strlen()
 {
-	printf("%lu\n", ft_strlen(""));
-	printf("%lu\n", strlen(""));
+	printf("======= ft_strlen =======\n");
+	printf("ret_ft : %lu\n", ft_strlen(""));
+	printf("ret_of : %lu\n", strlen(""));
 
-	printf("%lu\n", ft_strlen("coucou\n"));
-	printf("%lu\n", strlen("coucou\n"));
+	printf("ret_ft : %lu\n", ft_strlen("coucou\n"));
+	printf("ret_of : %lu\n", strlen("coucou\n"));
 
-	printf("%lu\n", ft_strlen("Je suis une longue phrase pour tester si tout se passe bien avec des char * assez long"));
-	printf("%lu\n", strlen("Je suis une longue phrase pour tester si tout se passe bien avec des char * assez long"));
+	printf("ret_ft : %lu\n", ft_strlen("Je suis une longue phrase pour tester si tout se passe bien avec des char * assez long"));
+	printf("ret_of : %lu\n", strlen("Je suis une longue phrase pour tester si tout se passe bien avec des char * assez long"));
+	printf("========================\n\n");
 }
 
 void test_strcpy()
 {
 	char str[100];
 	char str2[100];
-
+	printf("======= ft_strcpy =======\n");
 	ft_strcpy(str, "coucou toto phrase longue");
 	strcpy(str2, "coucou toto phrase longue");
 	printf("%s\n%s\n", str, str2);
@@ -32,44 +34,76 @@ void test_strcpy()
 	ft_strcpy(str, "c");
 	strcpy(str2, "c");
 	printf("%s\n%s\n", str, str2);
+	printf("==================\n\n");
+}
+
+void test_strcmp(void)
+{
+	printf("======= ft_strcmp =======\n");
+	printf("for strcmp(\"coucou\", \"coucou\")\n");
+	printf("ret_ft = %d\n", ft_strcmp("coucou", "coucou"));
+	printf("ret_of = %d\n", strcmp("coucou", "coucou"));
+
+	printf("for strcmp(\"Acoucou\", \"coucou\")\n");
+	printf("ret_ft = %d\n", ft_strcmp("Acoucou", "coucou"));
+	printf("ret_of = %d\n", strcmp("Acoucou", "coucou"));
+
+	printf("for strcmp(\"\", \"\")\n");
+	printf("ret_ft = %d\n", ft_strcmp("", ""));
+	printf("ret_of = %d\n", strcmp("", ""));
+
+	printf("for strcmp(\"toto\", \"\")\n");
+	printf("ret_ft = %d\n", ft_strcmp("toto", ""));
+	printf("ret_of = %d\n", strcmp("toto", ""));
+
+	printf("for strcmp(\"\", \"toto\")\n");
+	printf("ret_ft = %d\n", ft_strcmp("", "toto"));
+	printf("ret_of = %d\n", strcmp("", "toto"));
+	printf("========================\n\n");
+}
+
+void test_write(void)
+{
+	printf("======= ft_write =======\n");
+	if (ft_write(1, "coucou", 6) == -1)
+		printf("error = %s\n", strerror(errno));
+	printf("\nbad file descriptor : \n");
+	if (ft_write(-1, "coucou", 1) == -1)
+		printf("error = %s\n", strerror(errno));
+	printf("bad length :\n");
+	if (ft_write(1, "coucou", -11) == -1)
+		printf("error = %s\n", strerror(errno));
+	printf("empty string :\n");
+	if (ft_write(1, "", 1) == -1)
+		printf("error = %s\n", strerror(errno));
+	printf("length inferior at strlen : \n");
+	if (ft_write(1, "coucou", 1) == -1)
+		printf("error = %s\n", strerror(errno));
+	printf("\n=========================\n\n");
+}
+
+void test_read(void)
+{
+	char buf[70];
+	int fd;
+	printf("======= ft_read =======\n");
+	fd = open("test.txt", O_RDONLY);
+	printf("normal : \n");
+	if (ft_read(fd, buf, 70) == -1)
+		printf("error = %s\n", strerror(errno));
+	printf("%s\n", buf);
+	printf("bad file descriptor : \n");
+	if (ft_read(-1, "coucou", 1) == -1)
+		printf("error = %s\n", strerror(errno));
+	printf("=====================\n\n");
 }
 
 int main(void)
 {
-	t_list *temp;
-	temp = NULL;
-//	t_list *temp2;
-	//test_strlen();
-	//test_strcpy();
-	//printf("ret = %d\n", ft_strcmp("coudcou", "coucou"));
-	//printf("ret = %d\n", strcmp("coucou", "coucou"));
-	//ft_putchar('d');
-	//ft_putstr("coucou\n");
-	//ft_putnbr(11556);
-	//printf("%d\n", ft_tolower('-'));
-	//printf("%d\n", tolower('-'));
-	/*
-	if (ft_write(1, "coucou", 1) == -1)
-	{
-		printf("error = %s\n", strerror(errno));
-	}
-	if (ft_read(-1, "coucou", 1) == -1)
-	{
-		printf("error = %s\n", strerror(errno));
-	}
-	char *test;
-	test = ft_strdup("coucou");
-	printf("%s\n", test);*/
 
-	ft_list_push_front(&temp, (void *)"coucou");
-	//temp->next = NULL;
-	ft_list_push_front(&temp, (void *)"test");
-	ft_list_push_front(&temp, (void *)"test");
-	printf("%d\n", ft_list_size(temp));
-	while (temp)
-	{
-		printf("%s\n", temp->data);
-		temp = temp->next;
-	}
-	return (0);
+	test_strlen();
+	test_strcpy();
+	test_strcmp();
+	test_write();
+	test_read();
 }
