@@ -36,9 +36,12 @@ void test_strcpy()
 
 int main(void)
 {
+	t_list *temp;
+	temp = NULL;
+//	t_list *temp2;
 	//test_strlen();
-	test_strcpy();
-	//printf("ret = %d\n", ft_strcmp("coucou", "coucou"));
+	//test_strcpy();
+	//printf("ret = %d\n", ft_strcmp("coudcou", "coucou"));
 	//printf("ret = %d\n", strcmp("coucou", "coucou"));
 	//ft_putchar('d');
 	//ft_putstr("coucou\n");
@@ -57,5 +60,16 @@ int main(void)
 	char *test;
 	test = ft_strdup("coucou");
 	printf("%s\n", test);*/
+
+	ft_list_push_front(&temp, (void *)"coucou");
+	//temp->next = NULL;
+	ft_list_push_front(&temp, (void *)"test");
+	ft_list_push_front(&temp, (void *)"test");
+	printf("%d\n", ft_list_size(temp));
+	while (temp)
+	{
+		printf("%s\n", temp->data);
+		temp = temp->next;
+	}
 	return (0);
 }
