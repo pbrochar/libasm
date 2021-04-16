@@ -12,8 +12,6 @@ NASM = nasm
 NASM_FLAGS = -felf64
 CC = clang
 
-
-#-o $@ $?
 %.o : %.s
 	$(NASM) $(NASM_FLAGS) $<
 
@@ -28,12 +26,20 @@ bonus: $(OBJS) $(OBJS_BONUS)
 test: $(NAME)
 	$(CC) -Wall -Wextra -Werror main.c $(NAME)
 
+test_bonus: bonus
+	$(CC) -Wall -Wextra -Werror main_bonus.c $(NAME)
+
+clean_test:
+	rm -rf a.out
+
 clean:
 	rm -rf $(OBJS)
+	rm -rf $(OBJS_BONUS)
 
 fclean: clean
 	rm -rf $(NAME)
 
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all test bonus test_bonus clean_test clean fclean re
