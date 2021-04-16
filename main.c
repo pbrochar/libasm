@@ -98,6 +98,19 @@ void test_read(void)
 	printf("=====================\n\n");
 }
 
+void test_strdup(void)
+{
+	char *str;
+
+	printf("======= ft_strdup =======\n");
+	str = ft_strdup("coucou");
+	printf("|%s|\n", str);
+	free(str);
+	str = ft_strdup("");
+	printf("|%s|\n", str);
+	printf("=======================\n");
+}
+
 int main(void)
 {
 
@@ -106,4 +119,5 @@ int main(void)
 	test_strcmp();
 	test_write();
 	test_read();
+	test_strdup();
 }
