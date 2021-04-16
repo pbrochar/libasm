@@ -4,6 +4,8 @@
 # include <stdio.h>
 # include <string.h>
 # include <ctype.h>
+# include <sys/types.h>
+# include <errno.h>
 
 size_t ft_strlen(const char *s);
 char *ft_strcpy(char *dest, const char *src);
@@ -18,4 +20,5 @@ int ft_isascii(int c);
 int ft_isprint(int c);
 int ft_toupper(int c);
 int ft_tolower(int c);
+ssize_t ft_write(int fd, const char *buf, size_t count);
 #endif

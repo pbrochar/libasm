@@ -43,7 +43,11 @@ int main(void)
 	//ft_putchar('d');
 	//ft_putstr("coucou\n");
 	//ft_putnbr(11556);
-	printf("%d\n", ft_tolower('-'));
-	printf("%d\n", tolower('-'));
+	//printf("%d\n", ft_tolower('-'));
+	//printf("%d\n", tolower('-'));
+	if (ft_write(1, "coucou", -1) == -1)
+	{
+		printf("error = %s\n", strerror(errno));
+	}
 	return (0);
 }
