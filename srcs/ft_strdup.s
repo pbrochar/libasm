@@ -13,6 +13,7 @@ ft_strdup:
 	push rdi
 	call ft_strlen
 	mov rdi, rax
+	inc rdi
 	call malloc
 	cmp rax, 0
 	jl errno_management
